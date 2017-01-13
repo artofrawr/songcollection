@@ -1,12 +1,15 @@
 from __future__ import unicode_literals
+import yaml
 import youtube_dl
 import requests
 import argparse
 import urllib
 
+with open("config.yml", "r") as f:
+    CONFIG = yaml.load(f)
+
 HEADERS = { 'User-Agent': 'Mozilla/5.0 (Windows NT 6.0; WOW64; rv:24.0) Gecko/20100101 Firefox/24.0' }
-API_KEY = 'df26d196b94ccf2a62b8e63a051e9462'
-API_ROOT = 'http://ws.audioscrobbler.com/2.0/?api_key={0}&format=json&method='.format(API_KEY)
+API_ROOT = 'http://ws.audioscrobbler.com/2.0/?api_key={0}&format=json&method='.format(CONFIG['api_key'])
 
 def my_hook(d):
     if d['status'] == 'finished':
