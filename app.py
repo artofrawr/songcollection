@@ -52,7 +52,7 @@ class SongCollector(object):
         inputs = OrderedDict([('template/background.mp4', None), (input_jpg, None), (input_mp3, '-ss {0}'.format(timestamp))])
 
         ff = FFmpeg(
-            inputs,
+            inputs=inputs,
             outputs={output_path: [
                 '-filter_complex', '[0:v][1:v] overlay={0}:{1}:enable=\'between(t,0,60)\''.format(COVER_POSITION[0],COVER_POSITION[1]),
                 '-pix_fmt', 'yuv420p',
