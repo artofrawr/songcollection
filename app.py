@@ -5,13 +5,8 @@ import argparse
 import urllib
 
 HEADERS = { 'User-Agent': 'Mozilla/5.0 (Windows NT 6.0; WOW64; rv:24.0) Gecko/20100101 Firefox/24.0' }
-API_ROOT = 'http://ws.audioscrobbler.com/2.0/?api_key=df26d196b94ccf2a62b8e63a051e9462&format=json&method='
-
-# Application name	SongCollection
-# API key	df26d196b94ccf2a62b8e63a051e9462
-# Shared secret	8958fb3752aceaaa5fa1286e68be577f
-# Registered to	artofrawr
-
+API_KEY = 'df26d196b94ccf2a62b8e63a051e9462'
+API_ROOT = 'http://ws.audioscrobbler.com/2.0/?api_key={0}&format=json&method='.format(API_KEY)
 
 def my_hook(d):
     if d['status'] == 'finished':
@@ -48,7 +43,7 @@ def main():
 
     download_video(args.video)
     # track_search(args.artist, args.title)
-    
+
 
 if __name__ == "__main__":
     main()
