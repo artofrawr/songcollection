@@ -1,3 +1,7 @@
+ffmpy==0.2.2
+olefile==0.44
+Pillow==4.0.0
+PyYAML==3.12
 requests==2.12.4
 wheel==0.26.0
 youtube-dl==2017.1.10
