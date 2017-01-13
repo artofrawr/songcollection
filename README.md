@@ -9,7 +9,8 @@ A python script to create content for https://www.instagram.com/songcollection/
 * last.fm API key: http://www.last.fm/api 
 
 ## Initial Setup:
-To create the virtual environment and install dependencies: `source setup.sh` 
+To create the virtual environment and install dependencies: `source setup.sh` <br/>
+Then open `config.yml` in the text editor of your choice and change the `api_key` variable to your last.fm api key.
 
 ## Running the app:
 Activate the virtual environment: <br>```source virtualenv/songcollection/bin/activate```<br>
