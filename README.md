@@ -14,7 +14,6 @@ Then open `config.yml` in the text editor of your choice and change the `api_key
 
 ## Running the app:
 Activate the virtual environment: <br>```source virtualenv/songcollection/bin/activate```<br>
-<br>
 Basic use: <br>```python app.py -y cthwJXKFEoU```<br>
 
 ## Parameters:
