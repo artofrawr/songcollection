@@ -1,5 +1,5 @@
 # songcollection
-A python script to create content for https://www.instagram.com/songcollection/
+A python script to create videos for https://www.instagram.com/songcollection/
 
 ## Requirements:
 * [homebrew](http://brew.sh)
