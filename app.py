@@ -4,8 +4,6 @@ import youtube_dl
 import requests
 import argparse
 import os
-import urllib
-import shutil
 from PIL import Image
 from StringIO import StringIO
 from ffmpy import FFmpeg
@@ -99,16 +97,16 @@ class SongCollector(object):
             url = "{0}track.getInfo&artist={1}&track={2}".format(API_ROOT, artist, trackname)
             r = requests.get(url, headers=HEADERS)
             result = r.json()
-            if ('album' in result['track']):
+            if ('track' in result and 'album' in result['track']):
                 for image in result['track']['album']['image']:
-                    if image['size'] == "extralarge":
+                    if image['size'] == "extralarge" and image['#text'] != '':
                         return image['#text'].replace('300x300', '1200x1200')
 
         # if we couldn't find any album art using track.getInfo, fallback to artist imagery
         for i in range(min(5, len(tracks))):
             artist_images = tracks[i].get('image', [])
             for image in artist_images:
-                if image['size'] == "extralarge":
+                if image['size'] == "extralarge" and image['#text'] != '':
                     return image['#text'].replace('300x300', '1200x1200')
 
         return None
@@ -138,9 +136,9 @@ class SongCollector(object):
 
 def main():
     parser = argparse.ArgumentParser()
-    parser.add_argument('-y', '--youtube', required=True, help='Youtube ID (e.g. "cthwJXKFEoU").')
-    parser.add_argument('-t', '--title', help='Song title (e.g. "Muscles - Sweaty").')
-    parser.add_argument('-i', '--image', help='Cover art image URL (e.g. "https://goo.gl/npDZ4o").')
+    parser.add_argument('-y', '--youtube', required=True, help='Youtube ID (e.g. "ErYAGQZs8e0").')
+    parser.add_argument('-t', '--title', help='Song title (e.g. "SBTRKT - Pharaohs").')
+    parser.add_argument('-i', '--image', help='Cover art image URL (e.g. "https://goo.gl/2aoOEz").')
     parser.add_argument('-s', '--start', help='Timestamp in seconds to start at (e.g. 72).')
     args = parser.parse_args()
 
